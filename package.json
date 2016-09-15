@@ -5,7 +5,7 @@
   },
   "name": "simple-join",
   "description": "Stupidly Simple Asynchronous Joins for Javascript",
-  "version": "0.1",
+  "version": "0.0.1",
   "repository": {
     "url": "git://github.com/moappi/simple-join.git"
   },
