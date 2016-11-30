@@ -129,13 +129,12 @@ Get the join status object (same as object passed to the callback)
 
 Parameters: None
 
-Returns:
+Returns (object):
 
-- (object) with the following properties 
-	total (number) : total number of joins when join was created
-	success (number) : number of joins completed that were successful (via join.success)
-	errors (number) : number of joins that had errors (via join.error)
-	messages (array) : array of errors messages (via join.error)
+- `total` (number) : total number of joins when join was created
+- `success` (number) : number of joins completed that were successful (via join.success)
+- `errors` (number) : number of joins that had errors (via join.error)
+- `messages` (array) : array of errors messages (via join.error)
 
 Example:
 
