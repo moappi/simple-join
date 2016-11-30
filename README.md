@@ -3,14 +3,16 @@ simple-join
 
 Stuidly simple library to help join asynchronous callbacks in Javascript
 
-Installation
-------------
+## Install
+```
+$ npm install simple-join
+```
 
-	npm install simple-join
+## Usage
 
-Usage
------
-```javascript
+##### Simple joining
+
+```js
 	var join = require('simple-join');
 
 	var wait = new join(2,function(){
@@ -23,9 +25,9 @@ Usage
 	setTimeout(function(){ wait.done(); }, 5000);
 ```
 
-Also can track if joining functions are successful or had errors
+##### Simple joining, with error & success information
 
-```javascript
+```js
 	var join = require('simple-join');
 
 	var wait = new join(2,function(status){
@@ -38,4 +40,28 @@ Also can track if joining functions are successful or had errors
 	setTimeout(function(){ wait.error('my error message'); }, 5000);
 ```
 
-See test.js for full features and examples!
+## Methods
+
+### join(num,callback)
+
+Parameters: 
+
+- `num` (number) - number of waits to be comlpeted before running callback
+- `callback` (function) - callback function to be run when ready to join. Callback will be passed the status object (same as join.status method)
+
+Returns:
+
+- (object) new instance of the object
+
+Example:
+
+```js
+	var wait = new join(3,function(status){
+		//Run when we're done waiting!
+	});
+```
+
+#### join.done
+
+
+
