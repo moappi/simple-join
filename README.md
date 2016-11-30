@@ -46,8 +46,8 @@ $ npm install simple-join
 
 Parameters: 
 
-- `num` (number) - number of waits to be comlpeted before running callback
-- `callback` (function) - callback function to be run when ready to join. Callback will be passed the a single parameter, a status object (same as join.status method)
+- `num` (number) - number of joins to be comlpeted before running callback
+- `callback` (function) - callback function to be run when all joins are completed. Passed the status object (see join.status method)
 
 Returns:
 
@@ -63,7 +63,7 @@ Example:
 
 #### join.done(num)
 
-Signals that the a join(s) are completed
+Signals that a join(s) is completed
 
 Parameters: 
 
@@ -71,7 +71,7 @@ Parameters:
 
 Returns:
 
-- (number) number of joins that we are still waiting for
+- (number) number of joins that we're still waiting for
 
 Example:
 
@@ -82,7 +82,7 @@ Example:
 
 #### join.success(num)
 
-Signals that the a join(s) are completed, and was 'successful'
+Signals that a join(s) is completed, and was 'successful'
 
 Parameters: 
 
@@ -90,7 +90,7 @@ Parameters:
 
 Returns:
 
-- (number) number of joins that we are still waiting for
+- (number) number of joins that we're still waiting for
 
 Example:
 
@@ -101,7 +101,7 @@ Example:
 
 #### join.error(val)
 
-Signals that the a join(s) are completed, but with an 'error'.
+Signals that a join(s) is completed, but with an 'error'.
 
 Parameters: 
 
@@ -113,7 +113,7 @@ OR
 
 Returns:
 
-- (number) number of joins that we are still waiting for
+- (number) number of joins that we're still waiting for
 
 Example:
 
@@ -125,16 +125,16 @@ Example:
 
 #### join.status()
 
-Get the status object which shows details of the join.
+Get the join status object (same as object passed to the callback)
 
 Parameters: None
 
 Returns:
 
 - (object) with the following properties 
-	total (number) : total number of joins that we were waiting for
-	success (number) : total number of joins completed that were successful (via join.success)
-	errors (number) : total number of joins that had errors (via join.error)
+	total (number) : total number of joins when join was created
+	success (number) : number of joins completed that were successful (via join.success)
+	errors (number) : number of joins that had errors (via join.error)
 	messages (array) : array of errors messages (via join.error)
 
 Example:
