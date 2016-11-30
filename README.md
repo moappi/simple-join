@@ -57,21 +57,21 @@ Example:
 
 ```js
 	var wait = new join(3,function(status){
-		//Run when we're done waiting!
+		//Run when we've joined all 3 
 	});
 ```
 
 #### join.done(num)
 
-Signals that we're done waiting.
+Signals that the a join(s) are completed
 
 Parameters: 
 
-- `num` (number, optional) - number of waits to be crossed off the list, if omitted this is set to 1
+- `num` (number, optional) - number of joins to be crossed off the list, default is 1
 
 Returns:
 
-- (number) number of waits that we are still waiting for
+- (number) number of joins that we are still waiting for
 
 Example:
 
@@ -82,15 +82,15 @@ Example:
 
 #### join.success(num)
 
-Signals that we're done waiting, but with a 'success'.
+Signals that the a join(s) are completed, and was 'successful'
 
 Parameters: 
 
-- `num` (number, optional) - number of waits to be crossed off the list, if omitted this is set to 1
+- `num` (number, optional) - number of joins to be crossed off the list, default is 1
 
 Returns:
 
-- (number) number of waits that we are still waiting for
+- (number) number of joins that we are still waiting for
 
 Example:
 
@@ -101,19 +101,19 @@ Example:
 
 #### join.error(val)
 
-Signals that we're done waiting, but with an 'error'.
+Signals that the a join(s) are completed, but with an 'error'.
 
 Parameters: 
 
-- `val` (number, optional) - number of waits to be crossed off the list, if omitted this is set to 1
+- `val` (number, optional) - number of joins to be crossed off the list, default is 1
 
 OR
 
-- `val` (string, optional) - error message to be recorded and displayed using join.status
+- `val` (string, optional) - error message to be recorded
 
 Returns:
 
-- (number) number of waits that we are still waiting for
+- (number) number of joins that we are still waiting for
 
 Example:
 
@@ -125,17 +125,17 @@ Example:
 
 #### join.status()
 
-Get the status object which shows details on the join.
+Get the status object which shows details of the join.
 
 Parameters: None
 
 Returns:
 
 - (object) with the following properties 
-	total (number) : total number of waits that we're waiting for
-	success (number) : total number of waits completed that were successful (by join.success)
-	errors (number) : total number of waits that had errors (by join.error)
-	messages (array) : array of errors messages (by join.error)
+	total (number) : total number of joins that we were waiting for
+	success (number) : total number of joins completed that were successful (via join.success)
+	errors (number) : total number of joins that had errors (via join.error)
+	messages (array) : array of errors messages (via join.error)
 
 Example:
 
