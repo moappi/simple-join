@@ -1,11 +1,15 @@
-var join = require('simple-join');
+
+//Uncomment for Node.js testing
+//var join = require('simple-join');
 
 var finished = [];
 
 //Wait for the 5 tests to be done
-var tests = new join(5,function(){
+var tests = new join(6,function(status){
     
-    console.log("FINISHED",finished);
+	//Test the status function call
+	if(status !== tests.status()) console.error("Status does not match function call");
+	else console.log("FINISHED",finished);
 });
 
 // ------------------ 1. Test Done (single) --------------------
@@ -61,3 +65,11 @@ var test5 = new join(4,function(status){
 
 test5.success(2);
 test5.error(2);
+
+// ------------------ 6. Test None --------------------
+
+var test6 = new join(0,function(status){
+     
+    finished.push("TEST 6:" + JSON.stringify(status));
+    tests.done();
+});
